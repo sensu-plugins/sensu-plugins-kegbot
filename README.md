@@ -9,10 +9,8 @@
 ## Functionality
 
 ## Files
- *
- *
- *
- *
+ * bin/check-kegbot.rb
+ * bin/metrics-kegbot.rb
 
 ## Usage
 
