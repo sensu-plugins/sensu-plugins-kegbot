@@ -58,6 +58,7 @@ class KegbotMetrics < Sensu::Plugin::Metric::CLI::Graphite
     end
 
     taps.each do |tap|
+      next if tap['current_keg'].nil?
       tap_name = tap['name'].gsub(' ', '_')
       output "#{config[:scheme]}.#{tap_name}.percent_full", tap['current_keg']['percent_full']
       output "#{config[:scheme]}.#{tap_name}.volume_ml_remain", tap['current_keg']['volume_ml_remain']

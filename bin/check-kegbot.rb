@@ -69,6 +69,7 @@ class Kegbot < Sensu::Plugin::Check::CLI
     crit_taps = []
 
     taps.each do |tap|
+      next if tap['current_keg'].nil?
       message = tap['name'] + ' ' + "(#{tap['current_keg']['beverage']['name']})" + ': ' "#{tap['current_keg']['percent_full'].round}% remaining"
 
       if tap['current_keg']['percent_full'].round <= config[:crit]
