@@ -1,19 +1,33 @@
 language: ruby
 cache:
-  - bundler
+- bundler
 install:
-  - bundle install
+- bundle install
 rvm:
-  - 1.9.3
-  - 2.0
-  - 2.1
-  - 2.2
+- 1.9.3
+- 2.0
+- 2.1
+- 2.2
 notifications:
   email:
     recipients:
-      - sensu-plugin@sensu-plugins.io
+    - sensu-plugin@sensu-plugins.io
     on_success: change
     on_failure: always
-
 script:
-  - 'bundle exec rake default'
+- bundle exec rake default
+- gem build sensu-plugins-kegbott.gemspec
+- gem install sensu-plugins-kegbot-*.gem
+deploy:
+  provider: rubygems
+  api_key:
+    secure: asJM1cOvdA2xIPSec+XLFYQc9ixWaxvoGqwYGJQT+0fcXgvNuoLPp+9btg9HGieX7mLbpOAqGzmjYSx3y48QQFRo/w4J32MZ4q2As5bu2Pkk+LLbBTTxror+RYXp4zr/W3alkrScf/RAc3T8igaaZdRmmbwbUG6MGS4UnegNyLc=
+  gem: sensu-plugins-kegbot
+  on:
+    tags: true
+    all_branches: true
+    rvm: 1.9.3
+    rvm: 2.0
+    rvm: 2.1
+    rvm: 2.2
+    repo: sensu-plugins/sensu-plugins-kegbot
