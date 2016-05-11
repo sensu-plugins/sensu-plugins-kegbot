@@ -16,7 +16,7 @@ notifications:
     on_failure: always
 script:
 - bundle exec rake default
-- gem build sensu-plugins-kegbott.gemspec
+- gem build sensu-plugins-kegbot.gemspec
 - gem install sensu-plugins-kegbot-*.gem
 deploy:
   provider: rubygems
