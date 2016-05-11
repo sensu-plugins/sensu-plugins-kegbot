@@ -8,6 +8,8 @@
 
 ## Functionality
 
+Checks for monitoring and collecting metrics from [Kegbot](https://kegbot.org/). :beers:
+
 ## Files
  * bin/check-kegbot.rb
  * bin/metrics-kegbot.rb
